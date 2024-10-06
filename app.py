@@ -5,8 +5,11 @@ import pandas as pd
 from torch.utils.data import DataLoader
 import torch.nn as nn
 import import_ipynb  # Import the Jupyter notebook as a module
-from Hacakthon import *  # Import everything from your Jupyter notebook
+from Hacakthon_2 import *  # Import everything from your Jupyter notebook
 import os
+
+# ... (rest of your code remains unchanged)
+
 
 # Define your dataset and model classes
 class WeatherDataset(torch.utils.data.Dataset):
