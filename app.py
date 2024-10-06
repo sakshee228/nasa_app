@@ -122,4 +122,14 @@ if st.button('Predict Weather and Generate Alerts'):
 
         # Display predictions
         st.write("Predicted Weather Conditions:")
-        for i, (var, value) in enumerate(zip(THRESHOLDS
+        for i, (var, value) in enumerate(zip(THRESHOLDS.keys(), predictions)):
+            st.write(f"{var}: {value}")
+
+        # Generate and display alerts
+        alerts = generate_alerts(predictions)
+        if alerts:
+            st.warning("ALERTS:")
+            for alert in alerts:
+                st.warning(alert)
+        else:
+            st.success("No weather alerts for the given location.")
