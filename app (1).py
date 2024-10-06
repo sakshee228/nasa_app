@@ -4,6 +4,9 @@ import numpy as np
 import pandas as pd
 from torch.utils.data import DataLoader
 import torch.nn as nn
+import import_ipynb  # Import the Jupyter notebook as a module
+from Hacakthon import *  # Import everything from your Jupyter notebook
+import os
 
 # Define your dataset and model classes
 class WeatherDataset(torch.utils.data.Dataset):
@@ -98,6 +101,13 @@ st.title('AFNO Weather Alert System')
 # Load the model (add your saved model path if necessary)
 model = AFNO1DNet(in_chans=12, out_chans=8)  # Define model structure
 # model.load_state_dict(torch.load('afno1dnet_model.pth'))  # Uncomment if you have a saved model
+
+# Load dataset
+dataset_path = 'df_combined.csv'  # Update this path if necessary
+if not os.path.exists(dataset_path):
+    st.error(f"Dataset not found at {dataset_path}")
+else:
+    dataset = WeatherDataset(dataset_path)
 
 # Take user input
 lat = st.number_input('Enter Latitude:', format="%.6f")
