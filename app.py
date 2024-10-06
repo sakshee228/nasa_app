@@ -5,7 +5,7 @@ import pandas as pd
 from torch.utils.data import DataLoader
 import torch.nn as nn
 import import_ipynb  # Import the Jupyter notebook as a module
-from "Hacakthon (2)" import *  # Import everything from your Jupyter notebook
+from Hacakthon import *  # Import everything from your Jupyter notebook
 import os
 
 # Define your dataset and model classes
@@ -122,14 +122,4 @@ if st.button('Predict Weather and Generate Alerts'):
 
         # Display predictions
         st.write("Predicted Weather Conditions:")
-        for i, (var, value) in enumerate(zip(THRESHOLDS.keys(), predictions)):
-            st.write(f"{var}: {value}")
-
-        # Generate and display alerts
-        alerts = generate_alerts(predictions)
-        if alerts:
-            st.warning("ALERTS:")
-            for alert in alerts:
-                st.warning(alert)
-        else:
-            st.success("No weather alerts for the given location.")
+        for i, (var, value) in enumerate(zip(THRESHOLDS
